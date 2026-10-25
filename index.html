@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>AMbinex — AI &amp; Fullstack Engineering Execution Partner | Build your growth.</title>
+  <meta name="title" content="AMbinex — AI &amp; Fullstack Engineering Execution Partner | Build your growth.">
+  <meta name="description" content="We architect custom fullstack systems and integrate production-grade AI that give products a decisive market edge—delivering a verified 3-week zero-to-production execution cadence and a 12% baseline cost reduction.">
+  <meta name="keywords" content="AMbinex, AI engineering, fullstack architecture, production AI, LLM evaluation, autonomous agents, high-velocity engineering, FinOps">
+  <meta name="author" content="AMbinex">
+  <meta name="theme-color" content="#090A0C">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ambinex.github.io/">
+  <meta property="og:title" content="AMbinex — AI &amp; Fullstack Engineering Execution Partner">
+  <meta property="og:description" content="Build your growth. Verified 3-week zero-to-production execution cadence and 12% baseline cost reduction.">
+  <meta property="og:image" content="assets/ambinex-logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ambinex.github.io/">
+  <meta property="twitter:title" content="AMbinex — AI &amp; Fullstack Engineering Execution Partner">
+  <meta property="twitter:description" content="Build your growth. Verified 3-week zero-to-production execution cadence and 12% baseline cost reduction.">
+  <meta property="twitter:image" content="assets/ambinex-logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="assets/ambinex-logo.png">
+
+  <!-- Architectural Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Hairline Grid Background Underlay -->
+  <div class="hairline-grid-bg" aria-hidden="true"></div>
+
+  <!-- Live Telemetry Top Bar -->
+  <aside class="telemetry-ticker-bar" aria-label="System Telemetry">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <span class="telemetry-live-dot" aria-hidden="true"></span>
+      <span style="color: var(--amb-text-primary); font-weight: 600;">AMbinex TELEMETRY:</span>
+      <span>SYSTEMS NOMINAL</span>
+      <span style="color: var(--amb-border-focus);">//</span>
+      <span>CADENCE: 21-DAY SPRINT</span>
+      <span style="color: var(--amb-border-focus);">//</span>
+      <span style="color: var(--amb-accent-ignition); font-weight: 600;">BASELINE COST: -12%</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <span id="telemetry-clock">2026-10-25 00:00:00 UTC</span>
+      <span class="amb-telemetry-tag" style="border: 1px solid var(--amb-border-subtle); padding: 0.15rem 0.5rem;">STATUS: PRODUCTION</span>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="header-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <!-- Brand Mark & Wordmark -->
+        <a href="#" class="brand-link" aria-label="AMbinex Home">
+          <svg class="brand-mark-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <g transform="translate(6.6, 4) scale(0.16) skewX(-22)">
+              <path d="M 0 100 L 40 0 L 62 0 L 71 45 L 80 0 L 102 0 L 102 72 L 86 100 L 80 100 L 71 70 L 62 100 L 40 100 L 40 55 L 22 100 Z" fill="#F4F4F0" />
+              <path d="M 105 72 L 89 100 L 105 100 Z" fill="#FF2E00" />
+            </g>
+          </svg>
+          <span class="brand-title">
+            <span class="amb-wordmark-am">AM</span><span class="amb-wordmark-binex">binex</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav aria-label="Main Navigation">
+          <ul class="nav-links">
+            <li class="nav-link-item"><a href="#capabilities">Capabilities</a></li>
+            <li class="nav-link-item"><a href="#cadence">Execution Cadence</a></li>
+            <li class="nav-link-item"><a href="#roi-engine">ROI Engine</a></li>
+            <li class="nav-link-item"><a href="#comparison">Architecture Matrix</a></li>
+            <li class="nav-link-item"><a href="#case-studies">Deployments</a></li>
+          </ul>
+        </nav>
+
+        <!-- Actions -->
+        <div class="nav-actions">
+          <button type="button" class="btn-ghost trigger-brand-modal" id="nav-brand-kit-btn">
+            <span style="color: var(--amb-accent-ignition);">❖</span> Brand Kit v1.0
+          </button>
+          <a href="#initiate" class="btn-ignition" id="nav-cta-btn">
+            Initiate Execution <span aria-hidden="true">→</span>
+          </a>
+          <button type="button" class="btn-mobile-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <ul class="mobile-nav-links">
+      <li><a href="#capabilities" class="mobile-nav-item">Capabilities</a></li>
+      <li><a href="#cadence" class="mobile-nav-item">Execution Cadence</a></li>
+      <li><a href="#roi-engine" class="mobile-nav-item">ROI Engine</a></li>
+      <li><a href="#comparison" class="mobile-nav-item">Architecture Matrix</a></li>
+      <li><a href="#case-studies" class="mobile-nav-item">Deployments</a></li>
+      <li><a href="#" class="mobile-nav-item trigger-brand-modal">Brand Kit v1.0</a></li>
+    </ul>
+    <div style="margin-top: auto;">
+      <a href="#initiate" class="btn-ignition" style="width: 100%; text-align: center;">Initiate Execution →</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section crosshair-corner" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Column: Architectural Proposition -->
+          <div>
+            <div class="hero-badge-wrap">
+              <span class="amb-telemetry-tag" style="border: 1px solid var(--amb-border-subtle); background: var(--amb-bg-elevated); padding: 0.3rem 0.75rem;">
+                [VERIFIED PRODUCTION VELOCITY // ARCHITECTURAL PARTNER]
+              </span>
+              <span class="amb-tag-muted">// APEX MONOLITH 68° SHEAR</span>
+            </div>
+
+            <h1 class="hero-h1">
+              Build your <span class="amb-editorial-accent">growth.</span>
+            </h1>
+
+            <p class="hero-subtext">
+              We architect custom fullstack systems and integrate production-grade AI that give products a decisive market edge—delivering a verified <strong>3-week zero-to-production execution cadence</strong> and a <strong>12% baseline cost reduction</strong>.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#initiate" class="btn-ignition" id="hero-deploy-btn">
+                Deploy Your Roadmap <span aria-hidden="true">→</span>
+              </a>
+              <a href="#capabilities" class="btn-secondary" id="hero-inspect-btn">
+                Inspect System Architecture
+              </a>
+            </div>
+
+            <!-- Verified Metrics Strip -->
+            <div class="hero-metrics-strip">
+              <div class="metric-item">
+                <span class="metric-val highlight-ignition">3 WEEKS</span>
+                <span class="metric-sub">Zero-to-Prod Cadence</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">-12%</span>
+                <span class="metric-sub">Baseline Cost Delta</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">99.99%</span>
+                <span class="metric-sub">Fault-Tolerant SLA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive CLI Terminal & Architecture Simulator -->
+          <div>
+            <div class="cli-terminal-window">
+              <div class="cli-titlebar">
+                <div class="cli-window-controls">
+                  <span class="cli-ctrl-dot dot-active"></span>
+                  <span class="cli-ctrl-dot"></span>
+                  <span class="cli-ctrl-dot"></span>
+                </div>
+                <div class="cli-session-title">AMbinex-CORE-CLI // v2.4-STABLE</div>
+                <div class="amb-telemetry-tag" style="font-size: 0.5625rem;">LIVE_NODE</div>
+              </div>
+
+              <!-- Terminal Preset Scripts -->
+              <div class="cli-presets-bar" role="tablist" aria-label="Terminal Simulation Scenarios">
+                <button type="button" class="cli-preset-btn is-active" data-script="deploy" role="tab">01. Deploy Pipeline</button>
+                <button type="button" class="cli-preset-btn" data-script="finops" role="tab">02. FinOps -12% Audit</button>
+                <button type="button" class="cli-preset-btn" data-script="evals" role="tab">03. AI Evals &amp; Guardrails</button>
+                <button type="button" class="cli-preset-btn" data-script="sla" role="tab">04. Failover SLA</button>
+              </div>
+
+              <!-- Interactive Terminal Screen -->
+              <div class="cli-screen-body" id="cli-screen" aria-live="polite">
+                <!-- Injected via app.js -->
+              </div>
+
+              <div class="cli-footer-bar">
+                <span>BUFFER: 4 KERNEL THREADS ACTIVE</span>
+                <span>EXECUTION HOST: EDGE-CLUSTER-GLOBAL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PROOF OF VELOCITY TELEMETRY STRIP -->
+    <section class="telemetry-strip-section" aria-label="System Performance Indicators">
+      <div class="container">
+        <div class="telemetry-strip-grid">
+          <div class="telemetry-cell">
+            <div class="telemetry-cell-num">21 <span style="font-size: 1.25rem; color: var(--amb-accent-ignition); font-weight: 500;">DAYS</span></div>
+            <div class="telemetry-cell-label">Zero-to-Production Velocity</div>
+          </div>
+          <div class="telemetry-cell">
+            <div class="telemetry-cell-num">-12.4%</div>
+            <div class="telemetry-cell-label">Infrastructure &amp; LLM Cost Savings</div>
+          </div>
+          <div class="telemetry-cell">
+            <div class="telemetry-cell-num">&lt; 85 <span style="font-size: 1.25rem; color: var(--amb-accent-ignition); font-weight: 500;">MS</span></div>
+            <div class="telemetry-cell-label">P99 Edge Ingestion &amp; Inference</div>
+          </div>
+          <div class="telemetry-cell">
+            <div class="telemetry-cell-num">100%</div>
+            <div class="telemetry-cell-label">Deterministic Guardrails &amp; Evals</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CORE CAPABILITIES (ARCHITECTURAL BENTO GRID) -->
+    <section class="section-wrapper crosshair-corner" id="capabilities">
+      <div class="container">
+        <div class="section-header">
+          <div class="amb-telemetry-tag">[CAPABILITIES MATRIX]</div>
+          <h2 class="section-title">Engineered for production scale.</h2>
+          <p class="section-desc">
+            We operate at the intersection of principal systems engineering and deep generative intelligence. No fragile wrappers. No prototype debt. Pure, hardened production architectures.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Bento 1: Autonomous AI & Deterministic Evals (Col 8) -->
+          <div class="bento-cell col-span-8">
+            <div>
+              <div class="bento-tag-row">
+                <span class="amb-telemetry-tag">01 // AUTONOMOUS AGENTS</span>
+                <span class="amb-tag-muted">LATENCY: &lt; 90MS</span>
+              </div>
+              <h3 class="bento-cell-title">Deterministic Agentic Systems &amp; Strict Evals</h3>
+              <p class="bento-cell-desc">
+                We engineer state-machine-driven agent loops with strict JSON schema validation, speculative semantic caching, automated adversarial red-teaming, and zero-leakage prompt firewalls.
+              </p>
+              
+              <div class="bento-interactive-box">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: var(--amb-text-muted);">
+                  <span>PIPELINE_ORCHESTRATION</span>
+                  <span class="cli-status-ok">EVAL_SCORE: 99.4%</span>
+                </div>
+                <div style="color: var(--amb-text-primary);">
+                  <code>Input &rarr; Guardrail Matrix &rarr; Semantic Cache &rarr; Speculative Model &rarr; Output Schema Validation</code>
+                </div>
+              </div>
+            </div>
+
+            <div class="bento-tech-tags">
+              <span class="tech-pill">LangGraph</span>
+              <span class="tech-pill">LlamaIndex</span>
+              <span class="tech-pill">DeepSeek / Claude 3.5</span>
+              <span class="tech-pill">Semantic Cache</span>
+              <span class="tech-pill">PyTest Evals</span>
+            </div>
+          </div>
+
+          <!-- Bento 2: FinOps & Cost Reduction (Col 4) -->
+          <div class="bento-cell col-span-4">
+            <div>
+              <div class="bento-tag-row">
+                <span class="amb-telemetry-tag">02 // FINOPS ENGINE</span>
+                <span class="amb-tag-muted">SAVINGS: -12%</span>
+              </div>
+              <h3 class="bento-cell-title">12% Baseline Cost Reduction</h3>
+              <p class="bento-cell-desc">
+                We re-engineer compute topology, implement token pruning, dynamic batching, and reserved compute arbitrage to permanently lower recurring cloud and inference overhead.
+              </p>
+
+              <div class="bento-interactive-box">
+                <div style="font-size: 1.75rem; font-weight: 700; color: var(--amb-accent-ignition); line-height: 1;">
+                  -12.0%
+                </div>
+                <div style="font-size: 0.6875rem; color: var(--amb-text-muted); margin-top: 0.25rem;">
+                  Contractual Baseline Cost Compression
+                </div>
+              </div>
+            </div>
+
+            <div class="bento-tech-tags">
+              <span class="tech-pill">AWS / GCP FinOps</span>
+              <span class="tech-pill">KEDA</span>
+              <span class="tech-pill">Token Pruning</span>
+              <span class="tech-pill">vLLM</span>
+            </div>
+          </div>
+
+          <!-- Bento 3: High-Throughput Fullstack Core (Col 4) -->
+          <div class="bento-cell col-span-4">
+            <div>
+              <div class="bento-tag-row">
+                <span class="amb-telemetry-tag">03 // FULLSTACK CORE</span>
+                <span class="amb-tag-muted">THROUGHPUT: 50K REQ/S</span>
+              </div>
+              <h3 class="bento-cell-title">Fault-Tolerant Micro-Architectures</h3>
+              <p class="bento-cell-desc">
+                Event-driven backends built with Rust, Go, and TypeScript. Distributed queues, asynchronous workers, and sub-second cold starts across globally distributed edge nodes.
+              </p>
+            </div>
+
+            <div class="bento-tech-tags">
+              <span class="tech-pill">TypeScript</span>
+              <span class="tech-pill">Go / Rust</span>
+              <span class="tech-pill">Next.js 15</span>
+              <span class="tech-pill">Kafka / RabbitMQ</span>
+            </div>
+          </div>
+
+          <!-- Bento 4: Vector & Data Infrastructure (Col 8) -->
+          <div class="bento-cell col-span-8">
+            <div>
+              <div class="bento-tag-row">
+                <span class="amb-telemetry-tag">04 // DATA INFRASTRUCTURE</span>
+                <span class="amb-tag-muted">INDEX: HNSW + BM25</span>
+              </div>
+              <h3 class="bento-cell-title">Hybrid Vector Engines &amp; Sub-10ms Retrieval</h3>
+              <p class="bento-cell-desc">
+                High-density vector embeddings fused with traditional lexical indexes. Multi-stage reranking, reciprocal rank fusion (RRF), and distributed partitioning that scale effortlessly to tens of millions of documents.
+              </p>
+
+              <div class="bento-interactive-box">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; text-align: center;">
+                  <div>
+                    <div style="color: var(--amb-accent-ignition); font-weight: 700;">8.2ms</div>
+                    <div style="font-size: 0.625rem; color: var(--amb-text-muted);">P95 Retrieval</div>
+                  </div>
+                  <div>
+                    <div style="color: var(--amb-text-primary); font-weight: 700;">99.2%</div>
+                    <div style="font-size: 0.625rem; color: var(--amb-text-muted);">Precision@K</div>
+                  </div>
+                  <div>
+                    <div style="color: #00E599; font-weight: 700;">0 Drift</div>
+                    <div style="font-size: 0.625rem; color: var(--amb-text-muted);">Index Coherence</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bento-tech-tags">
+              <span class="tech-pill">PostgreSQL (pgvector)</span>
+              <span class="tech-pill">Qdrant / Pinecone</span>
+              <span class="tech-pill">Cohere Rerank</span>
+              <span class="tech-pill">ClickHouse</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 3-WEEK ZERO-TO-PRODUCTION EXECUTION CADENCE -->
+    <section class="section-wrapper crosshair-corner" id="cadence">
+      <div class="container">
+        <div class="section-header">
+          <div class="amb-telemetry-tag">[VERIFIED SPRINT VELOCITY]</div>
+          <h2 class="section-title">The 3-Week Zero-to-Production Cadence.</h2>
+          <p class="section-desc">
+            We don't do endless discovery workshops or junior contractor churn. In 21 business days, AMbinex translates raw product requirements into a hardened, production-deployed system.
+          </p>
+        </div>
+
+        <div class="cadence-timeline">
+          <!-- Week 01 -->
+          <div class="cadence-card">
+            <div class="cadence-week-indicator">
+              <span>WEEK 01</span>
+              <span class="cadence-step-badge">DAYS 01 &ndash; 07</span>
+            </div>
+            <h3 class="cadence-title">Deep Architecture &amp; Spec Freeze</h3>
+            <p class="cadence-desc">
+              Principal systems engineers dissect the product requirements, lock data models, design API contracts, provision cloud infrastructure as code (IaC), and establish the AI eval test harness.
+            </p>
+            <ul class="cadence-checklist">
+              <li class="cadence-check-item">Schema architecture &amp; DB migrations locked</li>
+              <li class="cadence-check-item">Multi-region cloud infrastructure provisioned via IaC</li>
+              <li class="cadence-check-item">Adversarial eval dataset &amp; synthetic benchmarks ready</li>
+              <li class="cadence-check-item">Strict API contracts and authentication boundary</li>
+            </ul>
+          </div>
+
+          <!-- Week 02 -->
+          <div class="cadence-card">
+            <div class="cadence-week-indicator">
+              <span>WEEK 02</span>
+              <span class="cadence-step-badge">DAYS 08 &ndash; 14</span>
+            </div>
+            <h3 class="cadence-title">Fullstack Velocity &amp; Model Synthesis</h3>
+            <p class="cadence-desc">
+              Core application microservices, asynchronous queues, and frontend interfaces are constructed in lockstep with autonomous agent loops, prompt compilers, and vector ingestion pipelines.
+            </p>
+            <ul class="cadence-checklist">
+              <li class="cadence-check-item">High-throughput microservices &amp; state engines</li>
+              <li class="cadence-check-item">Autonomous agent tool-calling loops integrated</li>
+              <li class="cadence-check-item">Semantic caching and token optimization active</li>
+              <li class="cadence-check-item">Responsive, brand-aligned UI shell wired to live endpoints</li>
+            </ul>
+          </div>
+
+          <!-- Week 03 -->
+          <div class="cadence-card">
+            <div class="cadence-week-indicator">
+              <span>WEEK 03</span>
+              <span class="cadence-step-badge">DAYS 15 &ndash; 21</span>
+            </div>
+            <h3 class="cadence-title">Hardened Production Launch &amp; Evals</h3>
+            <p class="cadence-desc">
+              Stress testing under synthetic peak load, red-teaming against prompt injections, P99 latency tuning, FinOps baseline audit (-12% cost verification), and direct production traffic cutover.
+            </p>
+            <ul class="cadence-checklist">
+              <li class="cadence-check-item">P99 latency tuned under synthetic 10k req/s load</li>
+              <li class="cadence-check-item">Automated security red-teaming &amp; guardrail audit</li>
+              <li class="cadence-check-item">12% baseline cost reduction confirmed via FinOps</li>
+              <li class="cadence-check-item">Zero-downtime cutover &amp; full IP code handover</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. INTERACTIVE ROI & VELOCITY ENGINE -->
+    <section class="section-wrapper crosshair-corner" id="roi-engine">
+      <div class="container">
+        <div class="section-header">
+          <div class="amb-telemetry-tag">[FINOPS &amp; DELIVERY ARBITRAGE]</div>
+          <h2 class="section-title">Calculate your execution ROI.</h2>
+          <p class="section-desc">
+            Model your project velocity and verify your projected cost reduction based on your current cloud infrastructure spend and technical scope.
+          </p>
+        </div>
+
+        <div class="roi-calculator-box">
+          <!-- Controls -->
+          <div>
+            <div class="calc-control-group">
+              <div class="calc-label-row">
+                <label for="calc-spend-slider" class="calc-label">Current Monthly Infrastructure / Cloud Spend</label>
+                <span class="calc-display-value" id="calc-spend-val">$25,000/mo</span>
+              </div>
+              <input type="range" class="amb-range-slider" id="calc-spend-slider" min="5000" max="200000" step="5000" value="25000">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.625rem; color: var(--amb-text-muted); margin-top: 0.4rem;">
+                <span>$5,000/mo</span>
+                <span>$100,000/mo</span>
+                <span>$200,000+/mo</span>
+              </div>
+            </div>
+
+            <div class="calc-control-group">
+              <label class="calc-label">Primary Architectural Scope</label>
+              <div class="calc-segmented-control" role="group" aria-label="Scope Selection">
+                <button type="button" class="calc-seg-btn" data-scope-val="ai_agents">AI Agents &amp; Evals</button>
+                <button type="button" class="calc-seg-btn is-active" data-scope-val="fullstack_ai">Fullstack + AI Core</button>
+                <button type="button" class="calc-seg-btn" data-scope-val="infra_modern">Infra Modernization</button>
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+              <button type="button" class="btn-ignition" id="calc-apply-brief" style="width: 100%;">
+                Apply Metrics To Consultation Brief <span aria-hidden="true">&darr;</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Results Output -->
+          <div class="roi-results-card">
+            <div class="roi-stat-grid">
+              <div class="roi-stat-box">
+                <div class="roi-stat-num highlight" id="roi-savings">$36,000</div>
+                <div class="roi-stat-title">Projected Annual Cost Reduction (-12%)</div>
+              </div>
+              <div class="roi-stat-box">
+                <div class="roi-stat-num" id="roi-cadence">3 Weeks</div>
+                <div class="roi-stat-title">Target Zero-to-Production Horizon</div>
+              </div>
+              <div class="roi-stat-box">
+                <div class="roi-stat-num" id="roi-hours">820 hrs</div>
+                <div class="roi-stat-title">Engineering Overhead Saved</div>
+              </div>
+              <div class="roi-stat-box">
+                <div class="roi-stat-num" id="roi-latency">&lt; 75ms</div>
+                <div class="roi-stat-title">Target P99 Service Latency</div>
+              </div>
+            </div>
+
+            <div style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--amb-text-muted); border-top: 1px solid var(--amb-border-subtle); padding-top: 1rem;">
+              <span style="color: var(--amb-accent-ignition);">*</span> Baseline cost reduction guaranteed via speculative decoding, model quantization, container compaction, and autoscaling policy refinement.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. ARCHITECTURAL COMPARISON MATRIX -->
+    <section class="section-wrapper crosshair-corner" id="comparison">
+      <div class="container">
+        <div class="section-header">
+          <div class="amb-telemetry-tag">[ENGINEERING ARBITRAGE]</div>
+          <h2 class="section-title">AMbinex vs. Traditional Agencies.</h2>
+          <p class="section-desc">
+            A principal systems engineer's technical breakdown. Why conventional development vendors burn budget and miss launch windows.
+          </p>
+        </div>
+
+        <div class="comparison-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 25%;">Architectural Metric</th>
+                <th scope="col" class="col-ambinex" style="width: 38%;">AMbinex Execution Partner</th>
+                <th scope="col" style="width: 37%;">Legacy Development Agencies</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="font-family: var(--font-sans); font-weight: 600; color: var(--amb-text-primary);">Execution Cadence</th>
+                <td class="ambinex-col"><span class="highlight">3 Weeks</span> (Verified Zero-to-Production)</td>
+                <td class="dim-col">4 to 9 Months (Continuous scope creep)</td>
+              </tr>
+              <tr>
+                <th scope="row" style="font-family: var(--font-sans); font-weight: 600; color: var(--amb-text-primary);">AI Implementation</th>
+                <td class="ambinex-col">Production evals, deterministic guardrails, semantic caching</td>
+                <td class="dim-col">Superficial OpenAI wrapper, zero eval harness</td>
+              </tr>
+              <tr>
+                <th scope="row" style="font-family: var(--font-sans); font-weight: 600; color: var(--amb-text-primary);">Infrastructure Economics</th>
+                <td class="ambinex-col"><span class="highlight">-12% Baseline Cost</span> reduction built into design</td>
+                <td class="dim-col">Unoptimized cloud sprawl with ballooning bills</td>
+              </tr>
+              <tr>
+                <th scope="row" style="font-family: var(--font-sans); font-weight: 600; color: var(--amb-text-primary);">Engineering Team</th>
+                <td class="ambinex-col">Principal systems architects &amp; AI researchers</td>
+                <td class="dim-col">Junior outsourced contractors with high churn</td>
+              </tr>
+              <tr>
+                <th scope="row" style="font-family: var(--font-sans); font-weight: 600; color: var(--amb-text-primary);">IP Ownership</th>
+                <td class="ambinex-col">100% clean IP transfer, documented IaC &amp; CI/CD</td>
+                <td class="dim-col">Proprietary platform lock-in &amp; maintenance retainers</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PRODUCTION CASE STUDIES / DEPLOYMENTS -->
+    <section class="section-wrapper crosshair-corner" id="case-studies">
+      <div class="container">
+        <div class="section-header">
+          <div class="amb-telemetry-tag">[VERIFIED DELIVERIES]</div>
+          <h2 class="section-title">Production deployments in the field.</h2>
+          <p class="section-desc">
+            Measurable engineering outcomes delivered under real market conditions.
+          </p>
+        </div>
+
+        <div class="case-studies-grid">
+          <!-- Case 1 -->
+          <article class="case-card">
+            <div class="case-header-row">
+              <span class="amb-telemetry-tag">FINTECH REALTIME</span>
+              <span class="amb-tag-muted">CADENCE: 18 DAYS</span>
+            </div>
+            <h3 class="case-title">Distributed Clearing Ledger with Anomaly Agents</h3>
+            <p class="case-body">
+              Architected a high-throughput event sourcing pipeline processing 35,000 transactions per second with an autonomous anomaly evaluation engine running sub-50ms inference.
+            </p>
+            <div class="case-metric-highlight">
+              <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--amb-text-muted);">OUTCOME:</span>
+              <span style="font-family: var(--font-mono); font-weight: 700; color: var(--amb-accent-ignition);">-14.2% INFRA COST // 0 DRIFT</span>
+            </div>
+          </article>
+
+          <!-- Case 2 -->
+          <article class="case-card">
+            <div class="case-header-row">
+              <span class="amb-telemetry-tag">AUTONOMOUS LOGISTICS</span>
+              <span class="amb-tag-muted">CADENCE: 21 DAYS</span>
+            </div>
+            <h3 class="case-title">Multi-Facility Supply Chain Multi-Agent Mesh</h3>
+            <p class="case-body">
+              Deployed a deterministic 8-agent swarm across 14 distribution centers to dynamically route freight, predict customs delays, and auto-negotiate spot carrier capacity.
+            </p>
+            <div class="case-metric-highlight">
+              <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--amb-text-muted);">OUTCOME:</span>
+              <span style="font-family: var(--font-mono); font-weight: 700; color: var(--amb-accent-ignition);">99.8% ROUTING ACCURACY</span>
+            </div>
+          </article>
+
+          <!-- Case 3 -->
+          <article class="case-card">
+            <div class="case-header-row">
+              <span class="amb-telemetry-tag">HEALTHCARE AI</span>
+              <span class="amb-tag-muted">CADENCE: 19 DAYS</span>
+            </div>
+            <h3 class="case-title">Zero-Leakage Clinical Synthesis Engine</h3>
+            <p class="case-body">
+              Constructed a HIPAA-compliant hybrid vector search index across 12M medical records with deterministic guardrails ensuring zero hallucination on diagnostic triage summaries.
+            </p>
+            <div class="case-metric-highlight">
+              <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--amb-text-muted);">OUTCOME:</span>
+              <span style="font-family: var(--font-mono); font-weight: 700; color: var(--amb-accent-ignition);">0.00% HALLUCINATION RATE</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. INITIATE EXECUTION (ENGAGEMENT TERMINAL) -->
+    <section class="section-wrapper engagement-section crosshair-corner" id="initiate">
+      <div class="container">
+        <div class="engagement-grid">
+          <div>
+            <div class="amb-telemetry-tag">[PRINCIPAL ENGAGEMENT]</div>
+            <h2 class="section-title">Initiate your 3-week execution cycle.</h2>
+            <p class="section-desc" style="margin-bottom: 2rem;">
+              Direct engagement with principal architects. No intermediate account executives. Submit your technical requirements below for an architectural review and sprint roadmap within 24 hours.
+            </p>
+
+            <div style="background: #090A0C; border: var(--amb-border-hairline); padding: 1.5rem; margin-bottom: 1.5rem;">
+              <div style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--amb-accent-ignition); margin-bottom: 0.5rem; font-weight: 700;">
+                [ENGAGEMENT SLA SPECIFICATION]
+              </div>
+              <ul style="list-style: none; font-family: var(--font-mono); font-size: 0.75rem; color: var(--amb-text-muted); display: flex; flex-direction: column; gap: 0.4rem;">
+                <li>&bull; Response window: &lt; 24 hours (Principal Architect review)</li>
+                <li>&bull; Strict NDA &amp; IP protection guaranteed on submission</li>
+                <li>&bull; Verified 3-Week zero-to-prod sprint schedule verification</li>
+                <li>&bull; 12% baseline infrastructure cost reduction audit included</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <form id="engagement-form" class="roi-results-card" style="box-shadow: 0 15px 40px rgba(0,0,0,0.5);">
+              <div class="form-group">
+                <label for="form-name" class="form-label">Full Name &amp; Title</label>
+                <input type="text" id="form-name" class="form-input" placeholder="e.g. Alex Vance, VP of Engineering" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email" class="form-label">Work Email</label>
+                <input type="email" id="form-email" class="form-input" placeholder="alex@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-scope" class="form-label">Target Architecture Scope</label>
+                <select id="form-scope" class="form-select">
+                  <option value="Custom Fullstack Architecture + AI">Custom Fullstack Architecture + AI</option>
+                  <option value="AI Autonomous Agents & LLM Pipelines">AI Autonomous Agents &amp; LLM Pipelines</option>
+                  <option value="Infrastructure Modernization & FinOps">Infrastructure Modernization &amp; FinOps (-12%)</option>
+                  <option value="High-Throughput Vector DB & Search">High-Throughput Vector DB &amp; Search</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="form-notes" class="form-label">System Specification &amp; Objectives</label>
+                <textarea id="form-notes" class="form-textarea" placeholder="Detail your core system challenges, expected throughput, tech stack constraints, or deadline targets..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-ignition" id="form-submit-btn" style="width: 100%;">
+                Submit Architectural Brief <span aria-hidden="true">&rarr;</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MASTER FOOTER -->
+  <footer class="footer-master">
+    <div class="container">
+      <div class="footer-top-row">
+        <div>
+          <a href="#" class="brand-link" style="margin-bottom: 1rem;">
+            <svg class="brand-mark-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <g transform="translate(6.6, 4) scale(0.16) skewX(-22)">
+                <path d="M 0 100 L 40 0 L 62 0 L 71 45 L 80 0 L 102 0 L 102 72 L 86 100 L 80 100 L 71 70 L 62 100 L 40 100 L 40 55 L 22 100 Z" fill="#F4F4F0" />
+                <path d="M 105 72 L 89 100 L 105 100 Z" fill="#FF2E00" />
+              </g>
+            </svg>
+            <span class="brand-title">
+              <span class="amb-wordmark-am">AM</span><span class="amb-wordmark-binex">binex</span>
+            </span>
+          </a>
+          <p style="color: var(--amb-text-muted); font-size: 0.875rem; max-width: 24rem; margin-bottom: 1.5rem; line-height: 1.6;">
+            Build your growth. Architectural execution partner for production AI systems and high-velocity fullstack platforms.
+          </p>
+          <div class="amb-telemetry-tag">
+            CADENCE: 3 WEEKS // COST DELTA: -12%
+          </div>
+        </div>
+
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.1em; color: var(--amb-text-primary); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700;">
+            Systems
+          </div>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.8125rem;">
+            <li><a href="#capabilities" style="color: var(--amb-text-muted); text-decoration: none;">Autonomous Agents</a></li>
+            <li><a href="#capabilities" style="color: var(--amb-text-muted); text-decoration: none;">Fullstack Core</a></li>
+            <li><a href="#capabilities" style="color: var(--amb-text-muted); text-decoration: none;">Vector Databases</a></li>
+            <li><a href="#capabilities" style="color: var(--amb-text-muted); text-decoration: none;">FinOps -12% Engine</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.1em; color: var(--amb-text-primary); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700;">
+            Brand Assets
+          </div>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.8125rem;">
+            <li><a href="#" class="trigger-brand-modal" style="color: var(--amb-text-muted); text-decoration: none;">Apex Monolith Vector (.SVG)</a></li>
+            <li><a href="#" class="trigger-brand-modal" style="color: var(--amb-text-muted); text-decoration: none;">2400px Master PNG Lockups</a></li>
+            <li><a href="brand_identity.html" target="_blank" style="color: var(--amb-text-muted); text-decoration: none;">Master Identity Specification</a></li>
+            <li><a href="assets/logo.svg" target="_blank" style="color: var(--amb-text-muted); text-decoration: none;">Raw Vector Icon</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div>
+          &copy; 2026 AMbinex. All rights reserved. Strict proprietary IP and design system.
+        </div>
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <span>DEPLOYED VIA GITHUB PAGES</span>
+          <span style="color: var(--amb-border-focus);">//</span>
+          <span>SHA-256 VERIFIED</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MASTER BRAND IDENTITY MODAL & VECTOR GENERATOR -->
+  <div class="modal-overlay" id="brand-modal" role="dialog" aria-modal="true" aria-labelledby="brand-modal-heading">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <div class="amb-telemetry-tag">[LOCKED SPECIFICATION // APEX MONOLITH 68° SHEAR]</div>
+          <h2 id="brand-modal-heading" style="font-size: 1.15rem; font-weight: 600; color: var(--amb-text-primary); margin-top: 0.25rem;">
+            AMbinex Master Brand Identity System &amp; Lockup Generator
+          </h2>
+        </div>
+        <button type="button" class="modal-close-btn" id="brand-modal-close" aria-label="Close Brand Modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size: 0.875rem; color: var(--amb-text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+          Constructed using the exact verified Apex Monolith geometry: a fused geometric ligature sheared upward at 68 degrees, flat horizontal top and bottom slices, no crossbar on the 'A', and the surgical Vermilion-500 (#FF2E00) bottom-right triangle with a razor-thin parallel gap.
+        </p>
+
+        <!-- Brand Cards Grid -->
+        <div class="brand-kit-grid">
+          <!-- 1. Horizontal Lockup -->
+          <div class="brand-asset-card">
+            <div style="padding: 0.75rem 1rem; border-bottom: var(--amb-border-hairline); display: flex; justify-content: space-between; align-items: center; background: #090A0C;">
+              <span style="font-size: 0.6875rem; font-family: var(--font-mono); font-weight: 700; color: var(--amb-text-primary);">1. PRIMARY HORIZONTAL</span>
+              <div style="display: flex; gap: 4px;">
+                <button type="button" class="cli-preset-btn is-active" id="lockup-btn-dark-horizontal" onclick="toggleLockupTheme('horizontal', 'dark')">Dark</button>
+                <button type="button" class="cli-preset-btn" id="lockup-btn-light-horizontal" onclick="toggleLockupTheme('horizontal', 'light')">Light</button>
+              </div>
+            </div>
+            <div class="brand-asset-preview" id="lockup-preview-horizontal">
+              <div id="lockup-svg-wrap-horizontal" style="width: 100%; max-width: 240px; height: 60px;"></div>
+            </div>
+            <div class="brand-asset-controls">
+              <button type="button" class="btn-secondary" onclick="exportLockupSVG('horizontal')" style="width: 100%; font-size: 0.6875rem; padding: 0.6rem;">
+                Download .SVG Vector
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. Stacked Lockup -->
+          <div class="brand-asset-card">
+            <div style="padding: 0.75rem 1rem; border-bottom: var(--amb-border-hairline); display: flex; justify-content: space-between; align-items: center; background: #090A0C;">
+              <span style="font-size: 0.6875rem; font-family: var(--font-mono); font-weight: 700; color: var(--amb-text-primary);">2. VERTICAL STACKED</span>
+              <div style="display: flex; gap: 4px;">
+                <button type="button" class="cli-preset-btn is-active" id="lockup-btn-dark-stacked" onclick="toggleLockupTheme('stacked', 'dark')">Dark</button>
+                <button type="button" class="cli-preset-btn" id="lockup-btn-light-stacked" onclick="toggleLockupTheme('stacked', 'light')">Light</button>
+              </div>
+            </div>
+            <div class="brand-asset-preview" id="lockup-preview-stacked">
+              <div id="lockup-svg-wrap-stacked" style="width: 100%; max-width: 160px; height: 110px;"></div>
+            </div>
+            <div class="brand-asset-controls">
+              <button type="button" class="btn-secondary" onclick="exportLockupSVG('stacked')" style="width: 100%; font-size: 0.6875rem; padding: 0.6rem;">
+                Download .SVG Vector
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Wordmark Only -->
+          <div class="brand-asset-card">
+            <div style="padding: 0.75rem 1rem; border-bottom: var(--amb-border-hairline); display: flex; justify-content: space-between; align-items: center; background: #090A0C;">
+              <span style="font-size: 0.6875rem; font-family: var(--font-mono); font-weight: 700; color: var(--amb-text-primary);">3. WORDMARK ONLY</span>
+              <div style="display: flex; gap: 4px;">
+                <button type="button" class="cli-preset-btn is-active" id="lockup-btn-dark-wordmark" onclick="toggleLockupTheme('wordmark', 'dark')">Dark</button>
+                <button type="button" class="cli-preset-btn" id="lockup-btn-light-wordmark" onclick="toggleLockupTheme('wordmark', 'light')">Light</button>
+              </div>
+            </div>
+            <div class="brand-asset-preview" id="lockup-preview-wordmark">
+              <div id="lockup-svg-wrap-wordmark" style="width: 100%; max-width: 200px; height: 60px;"></div>
+            </div>
+            <div class="brand-asset-controls">
+              <button type="button" class="btn-secondary" onclick="exportLockupSVG('wordmark')" style="width: 100%; font-size: 0.6875rem; padding: 0.6rem;">
+                Download .SVG Vector
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. Icon Standalone -->
+          <div class="brand-asset-card">
+            <div style="padding: 0.75rem 1rem; border-bottom: var(--amb-border-hairline); display: flex; justify-content: space-between; align-items: center; background: #090A0C;">
+              <span style="font-size: 0.6875rem; font-family: var(--font-mono); font-weight: 700; color: var(--amb-text-primary);">4. APEX MONOLITH MARK</span>
+              <div style="display: flex; gap: 4px;">
+                <button type="button" class="cli-preset-btn is-active" id="lockup-btn-dark-icon" onclick="toggleLockupTheme('icon', 'dark')">Dark</button>
+                <button type="button" class="cli-preset-btn" id="lockup-btn-light-icon" onclick="toggleLockupTheme('icon', 'light')">Light</button>
+              </div>
+            </div>
+            <div class="brand-asset-preview" id="lockup-preview-icon">
+              <div id="lockup-svg-wrap-icon" style="width: 64px; height: 64px;"></div>
+            </div>
+            <div class="brand-asset-controls">
+              <button type="button" class="btn-secondary" onclick="exportLockupSVG('icon')" style="width: 100%; font-size: 0.6875rem; padding: 0.6rem;">
+                Download .SVG Vector
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; text-align: center;">
+          <a href="brand_identity.html" target="_blank" class="btn-ignition" style="display: inline-flex;">
+            Open Full Brand Identity Specifier &amp; 2400px Canvas Rasterizer &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

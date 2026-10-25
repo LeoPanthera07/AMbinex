@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="100%" height="100%">
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;700&amp;display=swap');
+            text { font-family: 'Sora', sans-serif; }
+        </style>
+    </defs>
+    <g transform="translate(14, 10) scale(1.1)">
+        <g transform="translate(6.6, 4) scale(0.16) skewX(-22)">
+            <path d="M 0 100 L 40 0 L 62 0 L 71 45 L 80 0 L 102 0 L 102 72 L 86 100 L 80 100 L 71 70 L 62 100 L 40 100 L 40 55 L 22 100 Z" fill="#F4F4F0" />
+            <path d="M 105 72 L 89 100 L 105 100 Z" fill="#FF2E00" />
+        </g>
+    </g>
+    <text x="58" y="34" font-size="22" fill="#F4F4F0" letter-spacing="-0.5">
+        <tspan font-weight="700">AM</tspan><tspan font-weight="300">binex</tspan>
+    </text>
+</svg>
