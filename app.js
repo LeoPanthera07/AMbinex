@@ -33,7 +33,7 @@ function initTelemetryClock() {
    ========================================================================== */
 const CLI_SCRIPTS = {
   deploy: [
-    { text: '$ ambinex init --cluster prod --ai-eval=verified', type: 'cmd' },
+    { text: '$ AMbinex init --cluster prod --ai-eval=verified', type: 'cmd' },
     { text: '[00.12s] Connecting to distributed edge cluster [eu-west, us-east, ap-northeast]...', type: 'info' },
     { text: '[00.38s] Verifying schema migrations & zero-downtime replication... [OK]', type: 'ok' },
     { text: '[00.82s] Synthesizing autonomous agent tool-calling sandbox... [OK]', type: 'ok' },
@@ -43,7 +43,7 @@ const CLI_SCRIPTS = {
     { text: '[01.89s] Production build verified. P99 latency: 68ms. SLA: 99.99%.', type: 'ok' }
   ],
   finops: [
-    { text: '$ ambinex finops --audit --baseline-reduction', type: 'cmd' },
+    { text: '$ AMbinex finops --audit --baseline-reduction', type: 'cmd' },
     { text: '[00.08s] Scanning container footprints & reserved compute nodes...', type: 'info' },
     { text: '[00.29s] Applying speculative decoding & dynamic batching on LLM inference...', type: 'info' },
     { text: '[00.67s] Caching repeated semantic queries (hit rate: 93.8%)... [OK]', type: 'ok' },
@@ -52,7 +52,7 @@ const CLI_SCRIPTS = {
     { text: '[01.21s] Architectural FinOps report compiled and locked.', type: 'ok' }
   ],
   evals: [
-    { text: '$ ambinex evals --suite production-agents --guardrails', type: 'cmd' },
+    { text: '$ AMbinex evals --suite production-agents --guardrails', type: 'cmd' },
     { text: '[00.15s] Ingesting 2,400 synthetic adversarial prompts...', type: 'info' },
     { text: '[00.52s] Evaluating tool-call validation & schema conformance... 100%', type: 'ok' },
     { text: '[00.88s] Hallucination mitigation filter: 0.00% leakage detected', type: 'ok' },
@@ -60,7 +60,7 @@ const CLI_SCRIPTS = {
     { text: '[01.32s] Autonomous Agent Ready for Production Deployment.', type: 'ok' }
   ],
   sla: [
-    { text: '$ ambinex healthcheck --multi-region-failover', type: 'cmd' },
+    { text: '$ AMbinex healthcheck --multi-region-failover', type: 'cmd' },
     { text: '[00.10s] Pinging global edge nodes (34 PoPs active)...', type: 'info' },
     { text: '[00.32s] US-East: 12ms | EU-West: 18ms | AP-Southeast: 24ms', type: 'ok' },
     { text: '[00.58s] Simulating database master failover under 50k req/s load...', type: 'info' },
