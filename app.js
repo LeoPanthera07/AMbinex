@@ -390,10 +390,10 @@ function initEngagementForm() {
 ========================================
 AMbinex EXECUTION ENGAGEMENT TELEMETRY
 ========================================
+TARGET INBOX: aakashtadhani.ambinex@gmail.com
 PARTNER: ${name} <${email}>
 SYSTEM SCOPE: ${scope}
 VERIFIED CADENCE: 3-Week Zero-to-Production
-BASELINE SAVINGS TARGET: -12%
 ARCHITECTURAL SPECIFICATION:
 ${notes || 'Standard 21-day execution pipeline requested.'}
 TIMESTAMP: ${new Date().toISOString()}
@@ -405,8 +405,27 @@ TIMESTAMP: ${new Date().toISOString()}
       navigator.clipboard.writeText(summaryPayload).catch(() => {});
     }
 
+    const subject = encodeURIComponent(`[AMbinex Execution Request] - ${name}`);
+    const body = encodeURIComponent(
+`Hi Aakash,
+
+Here is my AMbinex execution brief:
+----------------------------------------
+Name & Title: ${name}
+Work Email: ${email}
+Architecture Scope: ${scope}
+Timestamp: ${new Date().toISOString()}
+
+System Objectives & Requirements:
+${notes || 'Standard 21-day execution pipeline requested.'}
+----------------------------------------`
+    );
+
+    // Direct mail client trigger to aakashtadhani.ambinex@gmail.com
+    window.location.href = `mailto:aakashtadhani.ambinex@gmail.com?subject=${subject}&body=${body}`;
+
     form.reset();
-    showToast('Execution brief submitted. Principal Architect review dispatched.');
+    showToast('Dispatched to aakashtadhani.ambinex@gmail.com. Brief copied to clipboard.');
   });
 }
 
