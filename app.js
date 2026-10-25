@@ -6,7 +6,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initTelemetryClock();
-  initCliTerminal();
   initRoiCalculator();
   initBrandModal();
   initEngagementForm();
@@ -26,107 +25,6 @@ function initTelemetryClock() {
   }
   updateTime();
   setInterval(updateTime, 1000);
-}
-
-/* ==========================================================================
-   2. Interactive CLI Terminal & Architecture Simulator
-   ========================================================================== */
-const CLI_SCRIPTS = {
-  deploy: [
-    { text: '$ AMbinex init --cluster prod --ai-eval=verified', type: 'cmd' },
-    { text: '[00.12s] Connecting to distributed edge cluster [eu-west, us-east, ap-northeast]...', type: 'info' },
-    { text: '[00.38s] Verifying schema migrations & zero-downtime replication... [OK]', type: 'ok' },
-    { text: '[00.82s] Synthesizing autonomous agent tool-calling sandbox... [OK]', type: 'ok' },
-    { text: '[01.15s] Embedding semantic cache layer (Redis + pgvector)... [OK]', type: 'ok' },
-    { text: '[01.44s] Validating 3-Week Zero-to-Production cadence milestones...', type: 'info' },
-    { text: '         -> Sprint Target: 21 Days [METRICS: 100% ON SCHEDULE]', type: 'ignition' },
-    { text: '[01.89s] Production build verified. P99 latency: 68ms. SLA: 99.99%.', type: 'ok' }
-  ],
-  finops: [
-    { text: '$ AMbinex finops --audit --baseline-reduction', type: 'cmd' },
-    { text: '[00.08s] Scanning container footprints & reserved compute nodes...', type: 'info' },
-    { text: '[00.29s] Applying speculative decoding & dynamic batching on LLM inference...', type: 'info' },
-    { text: '[00.67s] Caching repeated semantic queries (hit rate: 93.8%)... [OK]', type: 'ok' },
-    { text: '[00.95s] Calculating compute cost efficiency differential...', type: 'info' },
-    { text: '         -> Baseline cost delta: -12.4% VERIFIED [ANNUAL RUN-RATE SAVINGS]', type: 'ignition' },
-    { text: '[01.21s] Architectural FinOps report compiled and locked.', type: 'ok' }
-  ],
-  evals: [
-    { text: '$ AMbinex evals --suite production-agents --guardrails', type: 'cmd' },
-    { text: '[00.15s] Ingesting 2,400 synthetic adversarial prompts...', type: 'info' },
-    { text: '[00.52s] Evaluating tool-call validation & schema conformance... 100%', type: 'ok' },
-    { text: '[00.88s] Hallucination mitigation filter: 0.00% leakage detected', type: 'ok' },
-    { text: '[01.05s] Deterministic fallback state machine verified.', type: 'ignition' },
-    { text: '[01.32s] Autonomous Agent Ready for Production Deployment.', type: 'ok' }
-  ],
-  sla: [
-    { text: '$ AMbinex healthcheck --multi-region-failover', type: 'cmd' },
-    { text: '[00.10s] Pinging global edge nodes (34 PoPs active)...', type: 'info' },
-    { text: '[00.32s] US-East: 12ms | EU-West: 18ms | AP-Southeast: 24ms', type: 'ok' },
-    { text: '[00.58s] Simulating database master failover under 50k req/s load...', type: 'info' },
-    { text: '[00.82s] Failover completed in 410ms with zero data loss.', type: 'ignition' },
-    { text: '[01.00s] All systems nominal. SLA maintained at 99.99%.', type: 'ok' }
-  ]
-};
-
-let currentCliInterval = null;
-
-function initCliTerminal() {
-  const screen = document.getElementById('cli-screen');
-  const presetBtns = document.querySelectorAll('.cli-preset-btn');
-  if (!screen) return;
-
-  function runScript(scriptKey) {
-    if (currentCliInterval) clearInterval(currentCliInterval);
-    screen.innerHTML = '';
-
-    const lines = CLI_SCRIPTS[scriptKey] || CLI_SCRIPTS.deploy;
-    let lineIdx = 0;
-
-    function addLine() {
-      if (lineIdx >= lines.length) {
-        const cursorLine = document.createElement('div');
-        cursorLine.className = 'cli-line-prompt';
-        cursorLine.innerHTML = `<span class="amb-telemetry-tag text-ash-400">AMbinex-sys:</span> <span class="cli-cursor"></span>`;
-        screen.appendChild(cursorLine);
-        screen.scrollTop = screen.scrollHeight;
-        return;
-      }
-
-      const item = lines[lineIdx];
-      const div = document.createElement('div');
-      
-      if (item.type === 'cmd') {
-        div.className = 'cli-line-prompt';
-        div.innerHTML = `<span class="amb-telemetry-tag" style="color: var(--amb-accent-ignition);">AMbinex-sys:</span> <span class="cli-cmd">${escapeHtml(item.text)}</span>`;
-      } else if (item.type === 'ok') {
-        div.innerHTML = `<span class="cli-status-ok">${escapeHtml(item.text)}</span>`;
-      } else if (item.type === 'ignition') {
-        div.innerHTML = `<span class="cli-status-ignition">${escapeHtml(item.text)}</span>`;
-      } else {
-        div.innerHTML = `<span class="text-ash-400">${escapeHtml(item.text)}</span>`;
-      }
-
-      screen.appendChild(div);
-      screen.scrollTop = screen.scrollHeight;
-      lineIdx++;
-      currentCliInterval = setTimeout(addLine, 180);
-    }
-
-    addLine();
-  }
-
-  presetBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      presetBtns.forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      const scriptKey = btn.dataset.script;
-      runScript(scriptKey);
-    });
-  });
-
-  // Run initial script
-  runScript('deploy');
 }
 
 /* ==========================================================================
