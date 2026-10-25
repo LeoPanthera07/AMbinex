@@ -6,11 +6,15 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initTelemetryClock();
+  initHeroCanvas();
+  initScrollReveals();
+  initAnimatedCounters();
   initRoiCalculator();
   initBrandModal();
   initEngagementForm();
   initMobileNav();
   initScrollAnimations();
+  initAmbientCursor();
 });
 
 /* ==========================================================================
@@ -25,6 +29,217 @@ function initTelemetryClock() {
   }
   updateTime();
   setInterval(updateTime, 1000);
+}
+
+/* ==========================================================================
+   2. Ambient Architectural Constellation Canvas
+   ========================================================================== */
+function initHeroCanvas() {
+  const canvas = document.getElementById('hero-ambient-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let mouse = { x: -1000, y: -1000, active: false };
+
+  function resize() {
+    const parent = canvas.parentElement;
+    if (!parent) return;
+    const rect = parent.getBoundingClientRect();
+    width = canvas.width = rect.width;
+    height = canvas.height = rect.height;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  window.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+    mouse.active = true;
+  });
+
+  window.addEventListener('mouseleave', () => {
+    mouse.active = false;
+  });
+
+  const nodeCount = Math.min(Math.floor((width * height) / 18000), 45);
+  const nodes = [];
+  for (let i = 0; i < nodeCount; i++) {
+    nodes.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.45,
+      vy: (Math.random() - 0.5) * 0.45,
+      radius: Math.random() * 1.5 + 1,
+      isAccent: Math.random() < 0.25
+    });
+  }
+
+  const pulses = [];
+  function spawnPulse() {
+    if (nodes.length < 2 || pulses.length > 5) return;
+    const a = Math.floor(Math.random() * nodes.length);
+    let nearest = -1;
+    let minDist = 140;
+    for (let j = 0; j < nodes.length; j++) {
+      if (a === j) continue;
+      const dx = nodes[a].x - nodes[j].x;
+      const dy = nodes[a].y - nodes[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < minDist) {
+        minDist = dist;
+        nearest = j;
+      }
+    }
+    if (nearest !== -1) {
+      pulses.push({
+        from: a,
+        to: nearest,
+        progress: 0,
+        speed: 0.015 + Math.random() * 0.015
+      });
+    }
+  }
+  setInterval(spawnPulse, 1200);
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = 0; i < nodes.length; i++) {
+      const n = nodes[i];
+      n.x += n.vx;
+      n.y += n.vy;
+
+      if (n.x < 0 || n.x > width) n.vx *= -1;
+      if (n.y < 0 || n.y > height) n.vy *= -1;
+
+      if (mouse.active) {
+        const dx = mouse.x - n.x;
+        const dy = mouse.y - n.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 140) {
+          const force = (140 - dist) / 140;
+          n.x += (dx / dist) * force * 0.5;
+          n.y += (dy / dist) * force * 0.5;
+        }
+      }
+
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+      ctx.fillStyle = n.isAccent ? '#FF2E00' : 'rgba(244, 244, 240, 0.45)';
+      ctx.fill();
+    }
+
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 130) {
+          const alpha = (1 - dist / 130) * 0.25;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = `rgba(34, 38, 46, ${alpha * 2})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+    }
+
+    for (let p = pulses.length - 1; p >= 0; p--) {
+      const pulse = pulses[p];
+      pulse.progress += pulse.speed;
+      if (pulse.progress >= 1) {
+        pulses.splice(p, 1);
+        continue;
+      }
+      const n1 = nodes[pulse.from];
+      const n2 = nodes[pulse.to];
+      if (!n1 || !n2) continue;
+      const px = n1.x + (n2.x - n1.x) * pulse.progress;
+      const py = n1.y + (n2.y - n1.y) * pulse.progress;
+
+      ctx.beginPath();
+      ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = '#FF2E00';
+      ctx.shadowColor = '#FF2E00';
+      ctx.shadowBlur = 8;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+}
+
+/* ==========================================================================
+   Scroll Reveal & Number Counters
+   ========================================================================== */
+function initScrollReveals() {
+  const elements = document.querySelectorAll('.reveal-on-scroll');
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+      }
+    });
+  }, {
+    threshold: 0.05,
+    rootMargin: '0px 0px -10px 0px'
+  });
+
+  elements.forEach(el => observer.observe(el));
+}
+
+function initAnimatedCounters() {
+  const counterElements = document.querySelectorAll('[data-counter]');
+  if (!counterElements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.counted) {
+        entry.target.dataset.counted = 'true';
+        animateCounter(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  counterElements.forEach(el => observer.observe(el));
+}
+
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.counter);
+  const suffix = el.dataset.suffix || '';
+  const prefix = el.dataset.prefix || '';
+  const isNegative = el.dataset.negative === 'true';
+  const isDecimal = el.dataset.counter.includes('.');
+  const duration = 1200;
+  const startTime = performance.now();
+
+  function update(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = Math.abs(target) * ease;
+    const formatted = isDecimal ? current.toFixed(2) : Math.round(current);
+    const sign = isNegative ? '-' : '';
+
+    el.textContent = `${prefix}${sign}${formatted}${suffix}`;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      const finalFormatted = isDecimal ? target.toFixed(2) : target;
+      el.textContent = `${prefix}${finalFormatted}${suffix}`;
+    }
+  }
+
+  requestAnimationFrame(update);
 }
 
 /* ==========================================================================
@@ -323,7 +538,7 @@ ${notes || 'Standard 21-day execution pipeline requested.'}
     window.location.href = `mailto:aakashtadhani.ambinex@gmail.com?subject=${subject}&body=${body}`;
 
     form.reset();
-    showToast('Dispatched to aakashtadhani.ambinex@gmail.com. Brief copied to clipboard.');
+    showToast('Execution brief compiled. Executive dispatch opened in your mail client.');
   });
 }
 
@@ -352,8 +567,10 @@ function initMobileNav() {
    7. Card Mouse Glow & Micro-animations
    ========================================================================== */
 function initScrollAnimations() {
-  const bentoCards = document.querySelectorAll('.bento-cell, .case-card, .cadence-card');
-  bentoCards.forEach(card => {
+  const interactiveCards = document.querySelectorAll(
+    '.bento-cell, .case-card, .cadence-card, .roi-calculator-box, .system-monitor-card, .roi-results-card'
+  );
+  interactiveCards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -362,6 +579,45 @@ function initScrollAnimations() {
       card.style.setProperty('--mouse-y', `${y}px`);
     });
   });
+}
+
+/* ==========================================================================
+   8. Ambient Cursor Illumination Follower
+   ========================================================================== */
+function initAmbientCursor() {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+  const glow = document.createElement('div');
+  glow.className = 'ambient-cursor-glow';
+  glow.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(glow);
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let currentX = mouseX;
+  let currentY = mouseY;
+  let isVisible = false;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!isVisible) {
+      isVisible = true;
+      glow.style.opacity = '1';
+    }
+  });
+
+  window.addEventListener('mouseleave', () => {
+    glow.style.opacity = '0';
+    isVisible = false;
+  });
+
+  function render() {
+    currentX += (mouseX - currentX) * 0.14;
+    currentY += (mouseY - currentY) * 0.14;
+    glow.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+    requestAnimationFrame(render);
+  }
+  render();
 }
 
 /* ==========================================================================

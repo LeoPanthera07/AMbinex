@@ -114,10 +114,11 @@
 
     <!-- 1. HERO SECTION -->
     <section class="hero-section crosshair-corner" id="hero">
-      <div class="container">
+      <canvas id="hero-ambient-canvas" class="hero-ambient-canvas" aria-hidden="true"></canvas>
+      <div class="container" style="position: relative; z-index: 2;">
         <div class="hero-grid">
           <!-- Left Column: Architectural Proposition -->
-          <div>
+          <div class="reveal-on-scroll">
             <div class="hero-badge-wrap">
               <span class="amb-telemetry-tag" style="border: 1px solid var(--amb-border-subtle); background: var(--amb-bg-elevated); padding: 0.3rem 0.75rem;">
                 [VERIFIED PRODUCTION VELOCITY // ARCHITECTURAL PARTNER]
@@ -145,16 +146,90 @@
             <!-- Verified Metrics Strip -->
             <div class="hero-metrics-strip">
               <div class="metric-item">
-                <span class="metric-val highlight-ignition">3 WEEKS</span>
+                <span class="metric-val highlight-ignition" data-counter="3" data-suffix=" WEEKS">3 WEEKS</span>
                 <span class="metric-sub">Zero-to-Prod Cadence</span>
               </div>
               <div class="metric-item">
-                <span class="metric-val">-12%</span>
+                <span class="metric-val" data-counter="-12" data-suffix="%" data-negative="true">-12%</span>
                 <span class="metric-sub">Baseline Cost Delta</span>
               </div>
               <div class="metric-item">
-                <span class="metric-val">99.99%</span>
+                <span class="metric-val" data-counter="99.99" data-suffix="%">99.99%</span>
                 <span class="metric-sub">Fault-Tolerant SLA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Architectural System Monitor Card -->
+          <div class="reveal-on-scroll stagger-2">
+            <div class="system-monitor-card">
+              <div class="monitor-header">
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <span class="telemetry-live-dot" aria-hidden="true"></span>
+                  <span class="monitor-title">SYSTEM CLUSTER TELEMETRY</span>
+                </div>
+                <span class="monitor-status-pill">P99 &lt; 42MS</span>
+              </div>
+
+              <div class="monitor-body">
+                <!-- Architectural Node Wireframe & Visual Pulse -->
+                <div class="monitor-graphic-wrap">
+                  <svg class="monitor-svg-diagram" viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="System Pipeline Diagram">
+                    <defs>
+                      <linearGradient id="wireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#FF2E00" stop-opacity="0.9"/>
+                        <stop offset="100%" stop-color="#FF2E00" stop-opacity="0.15"/>
+                      </linearGradient>
+                    </defs>
+                    <!-- Background Grid Filaments -->
+                    <path d="M 25 80 L 85 35 L 160 35 L 230 80 L 295 80" stroke="rgba(34, 38, 46, 0.9)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                    <path d="M 25 80 L 85 125 L 160 125 L 230 80" stroke="rgba(34, 38, 46, 0.9)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                    <path d="M 85 35 L 85 125 M 160 35 L 160 125" stroke="rgba(34, 38, 46, 0.5)" stroke-width="1"/>
+                    
+                    <!-- Dynamic Pulse Wave -->
+                    <path d="M 25 80 C 70 15, 110 145, 160 80 C 210 15, 250 145, 295 80" stroke="url(#wireGrad)" stroke-width="2" fill="none" class="pulse-wave-line"/>
+
+                    <!-- Nodes -->
+                    <circle cx="25" cy="80" r="4" fill="#090A0C" stroke="#FF2E00" stroke-width="2"/>
+                    <circle cx="85" cy="35" r="4" fill="#090A0C" stroke="#F4F4F0" stroke-width="2"/>
+                    <circle cx="160" cy="35" r="4" fill="#090A0C" stroke="#FF2E00" stroke-width="2"/>
+                    <circle cx="85" cy="125" r="4" fill="#090A0C" stroke="#F4F4F0" stroke-width="2"/>
+                    <circle cx="160" cy="125" r="4" fill="#090A0C" stroke="#FF2E00" stroke-width="2"/>
+                    <circle cx="230" cy="80" r="5" fill="#FF2E00"/>
+                    <circle cx="295" cy="80" r="4" fill="#090A0C" stroke="#00E599" stroke-width="2"/>
+
+                    <!-- Micro Labels -->
+                    <text x="25" y="100" fill="#8E95A2" font-family="'JetBrains Mono', monospace" font-size="8">INGEST</text>
+                    <text x="85" y="24" fill="#8E95A2" font-family="'JetBrains Mono', monospace" font-size="8">VECTOR</text>
+                    <text x="160" y="24" fill="#FF2E00" font-family="'JetBrains Mono', monospace" font-size="8">EVALS</text>
+                    <text x="220" y="72" fill="#FF2E00" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="bold">AUTONOMOUS</text>
+                    <text x="280" y="100" fill="#00E599" font-family="'JetBrains Mono', monospace" font-size="8">SLA 99.99%</text>
+                  </svg>
+                </div>
+
+                <!-- Telemetry Metrics Row -->
+                <div class="monitor-metrics-row">
+                  <div class="monitor-stat">
+                    <span class="monitor-stat-label">EDGE NODES</span>
+                    <span class="monitor-stat-val">34 GLOBAL</span>
+                  </div>
+                  <div class="monitor-stat">
+                    <span class="monitor-stat-label">AGENT REASONING</span>
+                    <span class="monitor-stat-val" style="color: var(--amb-accent-ignition);">DETERMINISTIC</span>
+                  </div>
+                  <div class="monitor-stat">
+                    <span class="monitor-stat-label">SLA DRIFT</span>
+                    <span class="monitor-stat-val" style="color: #00E599;">0.00%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="monitor-footer">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span class="telemetry-live-dot"></span>
+                  <span>AUTONOMOUS AGENT MESH: ACTIVE</span>
+                </div>
+                <span>CADENCE: 21D</span>
               </div>
             </div>
           </div>
@@ -164,22 +239,22 @@
 
     <!-- 2. PROOF OF VELOCITY TELEMETRY STRIP -->
     <section class="telemetry-strip-section" aria-label="System Performance Indicators">
-      <div class="container">
+      <div class="container reveal-on-scroll">
         <div class="telemetry-strip-grid">
           <div class="telemetry-cell">
-            <div class="telemetry-cell-num">21 <span style="font-size: 1.25rem; color: var(--amb-accent-ignition); font-weight: 500;">DAYS</span></div>
+            <div class="telemetry-cell-num"><span data-counter="21">21</span> <span style="font-size: 1.25rem; color: var(--amb-accent-ignition); font-weight: 500;">DAYS</span></div>
             <div class="telemetry-cell-label">Zero-to-Production Velocity</div>
           </div>
           <div class="telemetry-cell">
-            <div class="telemetry-cell-num">-12.4%</div>
+            <div class="telemetry-cell-num" data-counter="-12.4" data-suffix="%" data-negative="true">-12.4%</div>
             <div class="telemetry-cell-label">Infrastructure &amp; LLM Cost Savings</div>
           </div>
           <div class="telemetry-cell">
-            <div class="telemetry-cell-num">&lt; 85 <span style="font-size: 1.25rem; color: var(--amb-accent-ignition); font-weight: 500;">MS</span></div>
+            <div class="telemetry-cell-num">&lt; <span data-counter="85">85</span> <span style="font-size: 1.25rem; color: var(--amb-accent-ignition); font-weight: 500;">MS</span></div>
             <div class="telemetry-cell-label">P99 Edge Ingestion &amp; Inference</div>
           </div>
           <div class="telemetry-cell">
-            <div class="telemetry-cell-num">100%</div>
+            <div class="telemetry-cell-num" data-counter="100" data-suffix="%">100%</div>
             <div class="telemetry-cell-label">Deterministic Guardrails &amp; Evals</div>
           </div>
         </div>
@@ -189,7 +264,7 @@
     <!-- 3. CORE CAPABILITIES (ARCHITECTURAL BENTO GRID) -->
     <section class="section-wrapper crosshair-corner" id="capabilities">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <div class="amb-telemetry-tag">[CAPABILITIES MATRIX]</div>
           <h2 class="section-title">Engineered for production scale.</h2>
           <p class="section-desc">
@@ -199,7 +274,7 @@
 
         <div class="bento-grid">
           <!-- Bento 1: Autonomous AI & Deterministic Evals (Col 8) -->
-          <div class="bento-cell col-span-8">
+          <div class="bento-cell col-span-8 reveal-on-scroll stagger-1">
             <div>
               <div class="bento-tag-row">
                 <span class="amb-telemetry-tag">01 // AUTONOMOUS AGENTS</span>
@@ -231,7 +306,7 @@
           </div>
 
           <!-- Bento 2: FinOps & Cost Reduction (Col 4) -->
-          <div class="bento-cell col-span-4">
+          <div class="bento-cell col-span-4 reveal-on-scroll stagger-2">
             <div>
               <div class="bento-tag-row">
                 <span class="amb-telemetry-tag">02 // FINOPS ENGINE</span>
@@ -243,7 +318,7 @@
               </p>
 
               <div class="bento-interactive-box">
-                <div style="font-size: 1.75rem; font-weight: 700; color: var(--amb-accent-ignition); line-height: 1;">
+                <div style="font-size: 1.75rem; font-weight: 700; color: var(--amb-accent-ignition); line-height: 1;" data-counter="-12.0" data-suffix="%" data-negative="true">
                   -12.0%
                 </div>
                 <div style="font-size: 0.6875rem; color: var(--amb-text-muted); margin-top: 0.25rem;">
@@ -261,7 +336,7 @@
           </div>
 
           <!-- Bento 3: High-Throughput Fullstack Core (Col 4) -->
-          <div class="bento-cell col-span-4">
+          <div class="bento-cell col-span-4 reveal-on-scroll stagger-1">
             <div>
               <div class="bento-tag-row">
                 <span class="amb-telemetry-tag">03 // FULLSTACK CORE</span>
@@ -282,7 +357,7 @@
           </div>
 
           <!-- Bento 4: Vector & Data Infrastructure (Col 8) -->
-          <div class="bento-cell col-span-8">
+          <div class="bento-cell col-span-8 reveal-on-scroll stagger-2">
             <div>
               <div class="bento-tag-row">
                 <span class="amb-telemetry-tag">04 // DATA INFRASTRUCTURE</span>
@@ -325,7 +400,7 @@
     <!-- 4. 3-WEEK ZERO-TO-PRODUCTION EXECUTION CADENCE -->
     <section class="section-wrapper crosshair-corner" id="cadence">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <div class="amb-telemetry-tag">[VERIFIED SPRINT VELOCITY]</div>
           <h2 class="section-title">The 3-Week Zero-to-Production Cadence.</h2>
           <p class="section-desc">
@@ -335,7 +410,7 @@
 
         <div class="cadence-timeline">
           <!-- Week 01 -->
-          <div class="cadence-card">
+          <div class="cadence-card reveal-on-scroll stagger-1">
             <div class="cadence-week-indicator">
               <span>WEEK 01</span>
               <span class="cadence-step-badge">DAYS 01 &ndash; 07</span>
@@ -353,7 +428,7 @@
           </div>
 
           <!-- Week 02 -->
-          <div class="cadence-card">
+          <div class="cadence-card reveal-on-scroll stagger-2">
             <div class="cadence-week-indicator">
               <span>WEEK 02</span>
               <span class="cadence-step-badge">DAYS 08 &ndash; 14</span>
@@ -371,7 +446,7 @@
           </div>
 
           <!-- Week 03 -->
-          <div class="cadence-card">
+          <div class="cadence-card reveal-on-scroll stagger-3">
             <div class="cadence-week-indicator">
               <span>WEEK 03</span>
               <span class="cadence-step-badge">DAYS 15 &ndash; 21</span>
@@ -394,7 +469,7 @@
     <!-- 5. INTERACTIVE ROI & VELOCITY ENGINE -->
     <section class="section-wrapper crosshair-corner" id="roi-engine">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <div class="amb-telemetry-tag">[FINOPS &amp; DELIVERY ARBITRAGE]</div>
           <h2 class="section-title">Calculate your execution ROI.</h2>
           <p class="section-desc">
@@ -402,7 +477,7 @@
           </p>
         </div>
 
-        <div class="roi-calculator-box">
+        <div class="roi-calculator-box reveal-on-scroll stagger-1">
           <!-- Controls -->
           <div>
             <div class="calc-control-group">
@@ -466,7 +541,7 @@
     <!-- 6. ARCHITECTURAL COMPARISON MATRIX -->
     <section class="section-wrapper crosshair-corner" id="comparison">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <div class="amb-telemetry-tag">[ENGINEERING ARBITRAGE]</div>
           <h2 class="section-title">AMbinex vs. Traditional Agencies.</h2>
           <p class="section-desc">
@@ -474,7 +549,7 @@
           </p>
         </div>
 
-        <div class="comparison-container">
+        <div class="comparison-container reveal-on-scroll stagger-1">
           <table class="comparison-table">
             <thead>
               <tr>
@@ -518,7 +593,7 @@
     <!-- 7. PRODUCTION CASE STUDIES / DEPLOYMENTS -->
     <section class="section-wrapper crosshair-corner" id="case-studies">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <div class="amb-telemetry-tag">[VERIFIED DELIVERIES]</div>
           <h2 class="section-title">Production deployments in the field.</h2>
           <p class="section-desc">
@@ -528,7 +603,7 @@
 
         <div class="case-studies-grid">
           <!-- Case 1 -->
-          <article class="case-card">
+          <article class="case-card reveal-on-scroll stagger-1">
             <div class="case-header-row">
               <span class="amb-telemetry-tag">FINTECH REALTIME</span>
               <span class="amb-tag-muted">CADENCE: 18 DAYS</span>
@@ -544,7 +619,7 @@
           </article>
 
           <!-- Case 2 -->
-          <article class="case-card">
+          <article class="case-card reveal-on-scroll stagger-2">
             <div class="case-header-row">
               <span class="amb-telemetry-tag">AUTONOMOUS LOGISTICS</span>
               <span class="amb-tag-muted">CADENCE: 21 DAYS</span>
@@ -560,7 +635,7 @@
           </article>
 
           <!-- Case 3 -->
-          <article class="case-card">
+          <article class="case-card reveal-on-scroll stagger-3">
             <div class="case-header-row">
               <span class="amb-telemetry-tag">HEALTHCARE AI</span>
               <span class="amb-tag-muted">CADENCE: 19 DAYS</span>
@@ -582,7 +657,7 @@
     <section class="section-wrapper engagement-section crosshair-corner" id="initiate">
       <div class="container">
         <div class="engagement-grid">
-          <div>
+          <div class="reveal-on-scroll stagger-1">
             <div class="amb-telemetry-tag">[PRINCIPAL ENGAGEMENT]</div>
             <h2 class="section-title">Initiate your 3-week execution cycle.</h2>
             <p class="section-desc" style="margin-bottom: 2rem;">
@@ -594,7 +669,7 @@
                 [ENGAGEMENT SLA SPECIFICATION]
               </div>
               <ul style="list-style: none; font-family: var(--font-mono); font-size: 0.75rem; color: var(--amb-text-muted); display: flex; flex-direction: column; gap: 0.4rem;">
-                <li>&bull; Direct Inbox: <a href="mailto:aakashtadhani.ambinex@gmail.com" style="color: var(--amb-text-primary); font-weight: 600; text-decoration: underline;">aakashtadhani.ambinex@gmail.com</a></li>
+                <li>&bull; Direct Inbox: <span style="color: var(--amb-text-primary); font-weight: 600;">Principal Systems Architect (Verified Client Relay)</span></li>
                 <li>&bull; Response window: &lt; 24 hours (Principal Architect review)</li>
                 <li>&bull; Strict NDA &amp; IP protection guaranteed on submission</li>
                 <li>&bull; Verified 3-Week zero-to-prod sprint schedule verification</li>
@@ -602,7 +677,7 @@
             </div>
           </div>
 
-          <div>
+          <div class="reveal-on-scroll stagger-2">
             <form id="engagement-form" class="roi-results-card" style="box-shadow: 0 15px 40px rgba(0,0,0,0.5);">
               <div class="form-group">
                 <label for="form-name" class="form-label">Full Name &amp; Title</label>
@@ -630,7 +705,7 @@
               </div>
 
               <button type="submit" class="btn-ignition" id="form-submit-btn" style="width: 100%;">
-                Send to aakashtadhani.ambinex@gmail.com <span aria-hidden="true">&rarr;</span>
+                Initiate Execution Cycle <span aria-hidden="true">&rarr;</span>
               </button>
             </form>
           </div>
